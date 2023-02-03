@@ -1,0 +1,21 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}Solicitudes | {% endblock subtitulo %}
+
+{% block background %}{% static 'vhsApp/assets/vhs-digital.jpg' %}{% endblock %}
+
+{% block contenidoVarios%}
+
+<div class="container">
+
+    <h1>Ingresa una solicitud</h1>
+
+    <a href="{% url 'crear_solicitudes' %}"><button class="btn btn-primary btn-sm">Solicitud</button></a>
+
+    <br>
+
+</div>
+
+{% endblock contenidoVarios %}

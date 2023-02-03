@@ -1,0 +1,42 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}About | {% endblock subtitulo %}
+
+{% block background %}{% static 'vhsApp/assets/assets/avatar.jpg' %}{% endblock %}
+
+{% block contenidoVarios %}
+
+<style>
+    .card{
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+</style>
+
+<div class="container">
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <div class="card my-4">
+                <h5 class="card-header text-center">about me</h5>
+                <div class="card-body">
+                    <p class="card-text"> Soy un estudiante de programación que busca lograr una carrera 
+                        en backend.</p>
+
+                    <p class="card-text"> Siempre e sido un apasionado de la escritura y de la informática.
+                        La programación fusiona estas pasiones convirtiendo en un placer el trabajo. 
+                        Amo la lógica y estructura del código, y espero que la simpleza, legibilidad y eficiencia 
+                        sea lo que me caracterice como programador.</p>
+
+                    <p class="card-text"> El café en las mañanas, mi hora de ejercicio y estoy listo para arrancar el día.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" top: 0 bottom: 0 margin: auto>
+            <img src="{% static 'vhsApp/assets/about.jpg' %}" width="300" height="300" class="img-thumbnail"/>
+        </div>
+    </div>
+</div>
+
+{% endblock contenidoVarios %}

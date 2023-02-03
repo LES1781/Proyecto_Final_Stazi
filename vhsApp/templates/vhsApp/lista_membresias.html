@@ -1,0 +1,45 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}Membresias | {% endblock subtitulo %}
+
+{% block background %}{% static 'vhsApp/assets/vhs-lluvia.jpg' %}{% endblock %}
+
+{% block contenidoVarios %}
+
+<style>
+    .card{
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+</style>
+
+<div class="container">
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <div class="card my-4">
+                <h5 class="card-header text-center">Basic</h5>
+                <div class="card-body">
+                    <p class="card-text">Con Basic podes navegar por la pagina, buscar videos, 
+                        dejarnos tus solicitudes y subir tus artículos de interés sobre el 
+                        mundo del cassette.</p>
+                    <p class="card-text">Te invitamos a ser parte de VHSclub con esta membresía gratuita.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card my-4">
+                <h5 class="card-header text-center">Premium</h5>
+                <div class="card-body">
+                    <p class="card-text">Actualmente la membresía premium se encuentra en desarrollo.</p>
+                    <p class="card-text">Nuestra intención con ella es brindar una experiencia mas completa.
+                        Te invitamos a dejarnos tu opinión sobre que te gustaría que trabajemos para mejorar.</p>
+                    <p class="card-text">La membresía tendrá, una vez activa, un valor de $1.99.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock contenidoVarios %}

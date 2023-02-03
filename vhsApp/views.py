@@ -10,7 +10,13 @@ from django.contrib.auth.views import LogoutView
 from django.views.generic import (UpdateView)
 
 from vhsApp.models import Cassette, Membresia, Solicitar
-
+from vhsApp.forms import (
+                          SolicitudFormulario,
+                          CassetteFormulario,
+                          UserRegisterForm,
+                          UserUpdateForm,
+                          AvatarFormulario,
+                         )
 
 
 def about(request):
@@ -70,7 +76,10 @@ def buscar_cassettes(request):
             data = request.POST 
             cassettes = Cassette.objects.filter(
                 Q(nombre__contains=data['busqueda']) |
-                Q(genero__contains=data['busqueda'])
+                Q(genero__contains=data['busqueda']) |
+                Q(autor__contains=data['busqueda']) |
+                Q(año__contains=data['busqueda']) |
+                Q(descripcion__contains=data['busqueda'])
             )
 
             contexto = {'cassettes' : cassettes}

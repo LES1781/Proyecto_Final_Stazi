@@ -1,0 +1,36 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}Solicitudes | {% endblock subtitulo %}
+
+{% block background %}{% static 'vhsApp/assets/vhs-digital.jpg' %}{% endblock %}
+
+{% block contenidoVarios%}
+
+<div class="container">
+
+    <div class="mb-3 text-left">
+        <h3>Que te gustaría decirnos:</h3>
+    </div>
+
+    <form action="{% url 'crear_solicitudes' %}" method="post">
+        {% csrf_token %}
+
+        <div class="mb-3 input-group-sm">
+            <label class="form-label">Solicitud</label>
+            <input type="text" name="solicitud" class="form-control">
+        </div>
+
+        <div class="mb-3 input-group-sm">
+            <label class="form-label">Fecha</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <p></p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+
+{% endblock contenidoVarios %}

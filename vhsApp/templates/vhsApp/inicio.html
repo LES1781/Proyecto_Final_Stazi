@@ -1,0 +1,23 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}Inicio | {% endblock subtitulo %}
+
+{% block background %}{% static 'vhsApp/assets/Main_background.jpg' %}{% endblock %}
+
+{% block contenidoVarios %}
+
+<div class="container">
+    <div class="mb-3 text-left">
+        <h1>
+            Bienvenido al mundo del VHS
+            {{ user.username }}
+            {% if user.avatar.imagen %}
+                <img src="{{ user.avatar.imagen.url }}" width="50" height="50" class="img-thumbnail"/>
+            {% endif %}
+        </h1>
+    </div>
+</div>
+
+{% endblock contenidoVarios %}

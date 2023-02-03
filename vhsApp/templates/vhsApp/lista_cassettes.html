@@ -1,0 +1,51 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}Cassettes | {% endblock subtitulo %}
+
+{% block background %}{% static 'vhsApp/assets/cassette_duo.jpg' %}{% endblock %}
+
+{% block contenidoVarios%}
+
+<div class="container">
+
+    <form action="/vhsApp/buscar_cassettes/" method="POST" class="row g-3">
+        {% csrf_token %}
+
+        <div class="col-auto">
+            <h2>Podes buscar un cassette:</h2>
+        </div>
+
+        <div class="col-md-4">
+            <input type="text" name="busqueda" class="form-control" placeholder="Type to search...">
+        </div>
+
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+        </div>
+
+    </form>
+
+    {% if cassettes %}
+
+    <ul>
+        {% for cassette in cassettes %}
+                <li> {{cassette.nombre}} </li>
+                <li> {{cassete.genero}} </li>
+                <li> {{cassete.autor}} </li>
+                <li> {{cassete.descripcion}} </li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+
+    <p>No hay datos.</p>
+
+    {% endif %}
+
+    <p style="color: red;">{{respuesta}}</p>
+
+</div>
+
+{% endblock contenidoVarios %}
