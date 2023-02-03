@@ -33,7 +33,7 @@ def inicio(request):
         template_name='vhsApp/inicio.html',
     )
 
-@login_required
+
 def listar_cassettes(request):
 
     contexto = {
