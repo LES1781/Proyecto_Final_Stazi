@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 
 from .models import Room
-
+from .forms import MessageForm
 
 
 class RoomList(generic.ListView):

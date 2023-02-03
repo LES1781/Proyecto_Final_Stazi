@@ -1,0 +1,35 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}ChatRooms | {% endblock subtitulo %}
+
+{% block background %}{% static 'chat/assets/vhs-lluvia.jpg' %}{% endblock %}
+
+{% block contenidoVarios %}
+
+<div class="container">
+    <div class="col mb-5 text-left">
+        <h1>Crear ChatRoom </h1>
+        <a href="{% url 'room_create' %}"><button type="submit" class="btn btn-outline-primary mb-3">Crear</button></a>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            {% for room in object_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ room.name }}</h2>
+                    <p class="card-text text-muted h6">
+                        {{ room.created_on}}
+                    </p>
+                    <div class="col justify-content-evenly">
+                        <a href="{% url 'room_detail' room.slug  %}" class="btn btn-info">Unirse &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock contenidoVarios %}

@@ -1,0 +1,25 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}ChatRooms | {% endblock subtitulo %}
+
+{% block background %}{% static 'chat/assets/vhs-lluvia.jpg' %}{% endblock %}
+
+{% block contenidoVarios %}
+
+<div class="container">
+    <div class="mb-3 text-left">
+        <h3>ChatRoom nuevo:</h3>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <p></p>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+</div>
+
+{% endblock contenidoVarios %}
