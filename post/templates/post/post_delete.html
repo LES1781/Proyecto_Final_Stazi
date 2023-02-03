@@ -1,0 +1,23 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}Post | {% endblock subtitulo %}
+
+{% block background %}{% static 'post/assets/efecto-falla.jpg' %}{% endblock %}
+
+{% block contenidoVarios %}
+
+<div class="container">
+    <span>Vas a eliminar: {{object}}</span>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <p></p>
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+    </form>
+</div>
+
+{% endblock contenidoVarios %}

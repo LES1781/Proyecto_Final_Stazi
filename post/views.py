@@ -18,7 +18,7 @@ class PostCreate(LoginRequiredMixin, generic.CreateView):
     model = Post
     fields = ['title', 'slug', 'author', 'content', 'image']
     success_url = reverse_lazy('post_list')
-    template_name = "blog/post_create.html"
+    template_name = "post/post_create.html"
 
 
 class PostUpdate(LoginRequiredMixin, generic.UpdateView):
@@ -26,14 +26,14 @@ class PostUpdate(LoginRequiredMixin, generic.UpdateView):
     model = Post
     fields = ['title', 'slug', 'author', 'content', 'image']
     success_url = reverse_lazy('post_list')
-    template_name = "blog/post_create.html"
+    template_name = "post/post_create.html"
 
 
 class PostDelete(LoginRequiredMixin, generic.DeleteView):
 
     model = Post
     success_url = reverse_lazy('post_list')
-    template_name = "blog/post_delete.html"
+    template_name = "post/post_delete.html"
 
 
 def post_detail(request, slug):
@@ -56,7 +56,7 @@ def post_detail(request, slug):
 
     return render(
         request, 
-        template_name='blog/post_detail.html',
+        template_name='post/post_detail.html',
         context={'post': post,
         'comments': comments,
         'new_comment': new_comment,

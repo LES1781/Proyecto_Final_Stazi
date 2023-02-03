@@ -1,0 +1,25 @@
+{% extends "vhsApp/base.html" %}
+
+{% load static %}
+
+{% block subtitulo %}Post | {% endblock subtitulo %}
+
+{% block background %}{% static 'post/assets/efecto-falla.jpg' %}{% endblock %}
+
+{% block contenidoVarios %}
+
+<div class="container">
+    <div class="mb-3 text-left">
+        <h3>Articulo nuevo:</h3>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <p></p>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+</div>
+
+{% endblock contenidoVarios %}
