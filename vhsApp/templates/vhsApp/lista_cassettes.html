@@ -30,14 +30,24 @@
     {% if cassettes %}
 
     <ul>
-        {% for cassette in cassettes %}
-                <li> {{cassette.nombre}} </li>
-                <li> {{cassete.genero}} </li>
-                <li> {{cassete.autor}} </li>
-                <li> {{cassete.descripcion}} </li>
-        {% endfor %}
+        <div class="row">
+            <div class="col-md-8 mt-3 left">
+                {% for cassette in cassettes %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">{{video.nombre}}</h2>
+                        <p class="card-text text-muted h6">
+                            <p>{{cassete.genero}}</p>
+                            <p>{{cassete.autor}}</p>
+                            <p>{{cassete.descripcion}}</p>
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </ul>
-
+ 
     {% else %}
 
     <p>No hay datos.</p>

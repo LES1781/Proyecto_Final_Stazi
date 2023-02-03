@@ -14,6 +14,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('vhsApp/', include('vhsApp.urls')),
     path('post/', include('post.urls')),
+    path('chat/', include('chat.urls')),
 
 ]
 
