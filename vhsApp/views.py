@@ -16,6 +16,7 @@ from vhsApp.forms import (
                           UserRegisterForm,
                           UserUpdateForm,
                           AvatarFormulario,
+                          CassetteFormulario,
                          )
 
 
@@ -45,7 +46,6 @@ def listar_cassettes(request):
         context=contexto,
     )
 
-@login_required
 def listar_membresias(request):
 
     contexto = {
@@ -76,17 +76,14 @@ def buscar_cassettes(request):
             data = request.POST 
             cassettes = Cassette.objects.filter(
                 Q(nombre__contains=data['busqueda']) |
-                Q(genero__contains=data['busqueda']) |
-                Q(autor__contains=data['busqueda']) |
-                Q(año__contains=data['busqueda']) |
-                Q(descripcion__contains=data['busqueda'])
+                Q(genero__contains=data['busqueda'])
             )
 
             contexto = {'cassettes' : cassettes}
 
             return render(
                 request=request,
-                template_name='vhsApp/listar_cassettes.html',
+                template_name='vhsApp/inicio.html',
                 context=contexto,
             )
 
@@ -96,7 +93,7 @@ def buscar_cassettes(request):
 
         return render(
             request=request,
-            template_name='vhsApp/listar_cassettes.html',
+            template_name='vhsApp/inicio.html',
             respuesta=respuesta,
             )
 
@@ -148,7 +145,7 @@ def crear_solicitudes(request):
                                  )
 
             solicitud.save()
-            url_exitosa = reverse('listar_solicitudes')
+            url_exitosa = reverse('lista_solicitudes')
             return redirect(url_exitosa)
 
     else:

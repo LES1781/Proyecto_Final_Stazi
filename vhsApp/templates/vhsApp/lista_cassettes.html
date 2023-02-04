@@ -9,53 +9,25 @@
 {% block contenidoVarios%}
 
 <div class="container">
-
-    <form action="/vhsApp/buscar_cassettes/" method="POST" class="row g-3">
-        {% csrf_token %}
-
-        <div class="col-auto">
-            <h2>Podes buscar un cassette:</h2>
-        </div>
-
-        <div class="col-md-4">
-            <input type="text" name="busqueda" class="form-control" placeholder="Type to search...">
-        </div>
-
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
-        </div>
-
-    </form>
-
-    {% if cassettes %}
-
-    <ul>
-        <div class="row">
-            <div class="col-md-8 mt-3 left">
-                {% for cassette in cassettes %}
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h2 class="card-title">{{video.nombre}}</h2>
-                        <p class="card-text text-muted h6">
-                            <p>{{cassete.genero}}</p>
-                            <p>{{cassete.autor}}</p>
-                            <p>{{cassete.descripcion}}</p>
-                        </p>
-                    </div>
+    <div class="mb-3 text-left">
+        <h1>Lista de cassettes</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            {% for cassette in cassettes %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ cassette.nombre }}</h2>
+                    <p class="card-text text-muted h6">
+                        <p>{{ cassette.genero }}</p>
+                        <p>{{ cassette.autor }}</p>
+                        <p>{{ cassette.descripcion }}</p>
+                    </p>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
-    </ul>
- 
-    {% else %}
-
-    <p>No hay datos.</p>
-
-    {% endif %}
-
-    <p style="color: red;">{{respuesta}}</p>
-
+    </div>
 </div>
 
 {% endblock contenidoVarios %}

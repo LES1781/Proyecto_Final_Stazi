@@ -12,8 +12,7 @@ class Cassette(models.Model):
 
     def __str__(self):
 
-      
-        return f"Video: {self.nombre} - Genero: {self.genero} - Año: {self.año}"
+        return f"cassette: {self.nombre} - Genero: {self.genero}"
 
 
 class Membresia(models.Model):
